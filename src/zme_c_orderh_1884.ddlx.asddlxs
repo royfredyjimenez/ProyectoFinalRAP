@@ -1,0 +1,91 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI: {
+headerInfo: {
+typeName: 'Detail',
+typeNamePlural: 'Details' 
+ }
+}
+ 
+annotate view ZCD_C_ORDERH_1884
+    with 
+{
+@UI.facet: [{ id: 'Iditsord',
+purpose: #STANDARD,
+type: #IDENTIFICATION_REFERENCE ,
+label: 'Detail',
+position: 10 }]
+@Search.defaultSearchElement: true
+  @UI: {
+    lineItem: [ { position: 10, importance: #MEDIUM } ],
+    identification: [ { position: 10 } ]
+  }
+  iditsord;
+  
+  @UI: {
+    lineItem: [ { position: 20, importance: #MEDIUM } ],
+    identification: [ { position: 20 } ]
+  }  
+  Idsales;
+   
+  @UI: {
+    lineItem: [ { position: 20, importance: #MEDIUM } ],
+    identification: [ { position: 20 } ]
+  }
+  name;
+  
+  @UI: {
+    lineItem: [ { position: 30, importance: #MEDIUM } ],
+    identification: [ { position: 30 } ]
+  }
+  description;
+  
+  @UI: {
+    lineItem: [ { position: 40, importance: #MEDIUM } ],
+    identification: [ { position: 40 } ]
+  }
+  releasedate;
+  
+  @UI: {
+    lineItem: [ { position: 50, importance: #MEDIUM } ],
+    identification: [ { position: 50 } ]
+  }
+  discontinueddate;
+  
+  @UI: {
+    lineItem: [ { position: 60, importance: #HIGH } ],
+    identification: [ { position: 60 } ]
+  }
+  price;
+  
+  @UI: {
+    lineItem: [ { position: 70, importance: #MEDIUM } ],
+    identification: [ { position: 70 } ]
+  }
+  height;
+  
+  @UI: {
+    lineItem: [ { position: 80, importance: #MEDIUM } ],
+    identification: [ { position: 80 } ]
+  }
+  width;
+  
+  @UI: {
+    lineItem: [ { position: 90, importance: #MEDIUM } ],
+    identification: [ { position: 90 } ]
+  }
+  depth;
+  
+  @UI: {
+    lineItem: [ { position: 100, importance: #MEDIUM } ],
+    identification: [ { position: 100 } ]
+  }
+  quantity;
+  
+  @UI: {
+    lineItem: [ { position: 110, importance: #MEDIUM } ],
+    identification: [ { position: 110 } ]
+  }
+  unitofmeasure;
+    
+}

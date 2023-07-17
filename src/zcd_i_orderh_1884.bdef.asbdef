@@ -1,0 +1,46 @@
+managed ;
+//implementation in class zbp_cd_i_orderh_1884 unique;
+//strict ( 1 );
+
+define behavior for ZCD_I_ORDERH_1884 alias header // <alias_name>
+implementation in class zbp_cd_i_orderh_1884 unique
+persistent table ztsorderh_1884
+with additional save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  field (readonly: update ) Idsales, Createon, Imagenurl;
+  field (mandatory : create) Createon,  Email, Firstname, Lastname, Deliverydate, Orderstatus;
+   mapping for ZTSORDERH_1884
+   {
+  Idsales = idsales;
+  Email = email;
+  Firstname = firstname;
+  Lastname = lastname;
+  Country = country;
+  Createon = createon;
+  Deliverydate = deliverydate;
+  Orderstatus = orderstatus;
+  Imagenurl = imageurl;
+   }
+  create;
+  update;
+  delete;
+  action createTravelByTemplate result [1] $self;
+  validation validatestatus on save { field Orderstatus; }
+  association item { create(features: instance); }
+ // association item { create; }
+}
+
+define behavior for ZCD_I_ORDERI_1884 //alias <alias_name>
+persistent table ztsorderi_1884
+lock dependent by _header
+authorization dependent by _header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Idsales;
+  association _header;
+}
