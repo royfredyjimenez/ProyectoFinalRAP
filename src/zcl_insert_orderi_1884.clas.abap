@@ -9,7 +9,11 @@ CLASS zcl_insert_orderi_1884 DEFINITION
   PRIVATE SECTION.
 ENDCLASS.
 
-CLASS zcl_insert_orderi_1884 IMPLEMENTATION.
+
+
+CLASS ZCL_INSERT_ORDERI_1884 IMPLEMENTATION.
+
+
    METHOD if_oo_adt_classrun~main.
 *
       data : it_orderheaderi type TABLE OF ztsorderi_1884.
@@ -37,5 +41,4 @@ CLASS zcl_insert_orderi_1884 IMPLEMENTATION.
     out->write( 'data inserted successfully!' ).
 
   ENDMETHOD.
-
 ENDCLASS.

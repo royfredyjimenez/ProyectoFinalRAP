@@ -1,91 +1,69 @@
 @Metadata.layer: #CORE
-@Search.searchable: true
+@Search.searchable:true
 @UI: {
 headerInfo: {
-typeName: 'Detail',
-typeNamePlural: 'Details' 
- }
-}
- 
+    typeName: 'Order Sales',
+    typeNamePlural: 'Order Sales',
+    title: {
+        type: #STANDARD,
+        value: 'idsales'
+    }
+} }
 annotate view ZCD_C_ORDERH_1884
     with 
 {
-@UI.facet: [{ id: 'Iditsord',
-purpose: #STANDARD,
-type: #IDENTIFICATION_REFERENCE ,
-label: 'Detail',
-position: 10 }]
-@Search.defaultSearchElement: true
+  @UI.facet: [ { id: 'idsales',
+   purpose: #STANDARD,
+   type: #IDENTIFICATION_REFERENCE,
+   label: 'Sales Order',
+   position: 10 },
+   { id: 'iditsord',
+   purpose: #STANDARD,
+   type: #LINEITEM_REFERENCE,
+   label: 'Detail',
+   position: 20,
+   targetElement: 'item'}]
   @UI: {
-    lineItem: [ { position: 10, importance: #MEDIUM } ],
-    identification: [ { position: 10 } ]
-  }
-  iditsord;
-  
-  @UI: {
-    lineItem: [ { position: 20, importance: #MEDIUM } ],
-    identification: [ { position: 20 } ]
-  }  
+  lineItem: [ { position: 10, importance: #HIGH } ],
+  identification: [ { position: 10, label: 'ID Header
+[1,...,99999999]'} ] }
+  @Search.defaultSearchElement: true
   Idsales;
-   
   @UI: {
-    lineItem: [ { position: 20, importance: #MEDIUM } ],
-    identification: [ { position: 20 } ]
-  }
-  name;
-  
+   lineItem: [ { position: 20, importance: #MEDIUM } ],
+   identification: [ { position: 20 } ] }
+  Email;
   @UI: {
-    lineItem: [ { position: 30, importance: #MEDIUM } ],
-    identification: [ { position: 30 } ]
-  }
-  description;
-  
+  lineItem: [ { position: 21, importance: #MEDIUM } ],
+  identification: [ { position: 21,  label: 'First Namer' } ] }
+  Firstname;
   @UI: {
-    lineItem: [ { position: 40, importance: #MEDIUM } ],
-    identification: [ { position: 40 } ]
-  }
-  releasedate;
-  
+  lineItem: [ { position: 22, importance: #MEDIUM } ],
+  identification: [ { position: 22,  label: 'Last Namer' } ] }
+  Lastname;
   @UI: {
-    lineItem: [ { position: 50, importance: #MEDIUM } ],
-    identification: [ { position: 50 } ]
-  }
-  discontinueddate;
-  
+  lineItem: [ { position: 23, importance: #MEDIUM } ],
+  identification: [ { position: 23 } ] }
+  Country;
   @UI: {
-    lineItem: [ { position: 60, importance: #HIGH } ],
-    identification: [ { position: 60 } ]
-  }
-  price;
-  
+  lineItem: [ { position: 24, importance: #MEDIUM } ],
+  identification: [ { position: 24 } ] }
+  Createon;
   @UI: {
-    lineItem: [ { position: 70, importance: #MEDIUM } ],
-    identification: [ { position: 70 } ]
-  }
-  height;
-  
+  lineItem: [ { position: 25, importance: #MEDIUM } ],
+  identification: [ { position: 25 ,  label: 'Delivery Date'} ] }
+  Deliverydate;
   @UI: {
-    lineItem: [ { position: 80, importance: #MEDIUM } ],
-    identification: [ { position: 80 } ]
-  }
-  width;
-  
+  lineItem: [ { position: 50, importance: #HIGH } ,
+  { type: #FOR_ACTION, dataAction: 'createTravelByTemplate', label: 'High sales order'
+  }], identification: [ { position: 45, label:
+  'Status [1(Initial)|2(Appr.)|3(Rej.)]' } ],
+  selectionField: [ { position: 40 } ] }
+  @EndUserText.label: 'Order Status'
+  Orderstatus;
   @UI: {
-    lineItem: [ { position: 90, importance: #MEDIUM } ],
-    identification: [ { position: 90 } ]
-  }
-  depth;
-  
-  @UI: {
-    lineItem: [ { position: 100, importance: #MEDIUM } ],
-    identification: [ { position: 100 } ]
-  }
-  quantity;
-  
-  @UI: {
-    lineItem: [ { position: 110, importance: #MEDIUM } ],
-    identification: [ { position: 110 } ]
-  }
-  unitofmeasure;
-    
+  lineItem: [ { position: 28, importance: #MEDIUM } ],
+  identification: [ { position: 28 ,  label: 'Imagen URL'} ] }
+  Imagenurl;
+
 }

@@ -9,7 +9,11 @@ CLASS zcl_insert_orderh_1884 DEFINITION
   PRIVATE SECTION.
 ENDCLASS.
 
-CLASS zcl_insert_orderh_1884 IMPLEMENTATION.
+
+
+CLASS ZCL_INSERT_ORDERH_1884 IMPLEMENTATION.
+
+
    METHOD if_oo_adt_classrun~main.
        data : it_orderheader type TABLE OF ztsorderh_1884.
       it_orderheader = VALUE #(
@@ -35,5 +39,4 @@ CLASS zcl_insert_orderh_1884 IMPLEMENTATION.
     out->write( 'data inserted successfully!' ).
 
   ENDMETHOD.
-
 ENDCLASS.

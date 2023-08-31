@@ -9,7 +9,7 @@ type: #STANDARD,
 value: 'Iditsord' }
 }
 }
-annotate view ZCD_C_ITSORD_0523
+annotate view ZCD_C_ORDERI_1884
     with 
 {
 @UI.facet: [{ id: 'Iditsord',
